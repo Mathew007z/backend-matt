@@ -12,10 +12,9 @@ class ProductMananger {
     // getProductos devuelve un array vacio.
     getProductos = () => {
         return this.productos;
-        
     }
 
-    addProduct = (title= 'producto a prueba', description='esto es un producto a prueba', price = 200, thumbnail='sin imagen', code='123', stock = 25) => {
+    addProduct = (title = 'producto a prueba', description='esto es un producto a prueba', price = 200, thumbnail='sin imagen', code='123', stock = 25) => {
         const producto = {
             title,
             description,
@@ -25,11 +24,7 @@ class ProductMananger {
             stock,
         }
 
-        const values = Object.values(producto)
-        if(values === code.value){
-         console.log('error duplicado')
-         return
-        }
+    
          
         // validacion para agregar id, y requerir todos los campos.
         if (this.productos.length === 0) {
@@ -40,15 +35,12 @@ class ProductMananger {
             
         }
 
-
         if(this.productos.includes('code')){
             console.log('error')
         }
             this.productos.push(producto);  
         
       
-
-
         // Console log para ver el producto pusheado
         console.log(producto)
 
@@ -62,26 +54,22 @@ class ProductMananger {
 
     // Encontrar producto por ID
     encontrarProducto =  (idProducto) => {
-       const encontrar = this.productos.find(id => id.id === idProducto.id)
-
+        const encontrar = this.productos.find(id => id.id === idProducto.id)
         if(!encontrar){
             console.log('producto no encontrado')
         }else{
             console.log(encontrar)
         }
+       
+
     }
 
 
  
 }
 
-
 const manejadorProductos =  new ProductMananger();
-
-
-
 manejadorProductos.addProduct('manzana', 'roja', 200, 'imagen', 123, 5)
-manejadorProductos.encontrarProducto(1) 
 manejadorProductos.addProduct('pera', 'verde', 300, 'pera', 222, 2)
-// manejadorProductos.encontrarProducto(1,2) 
+manejadorProductos.encontrarProducto(1) 
 console.log(manejadorProductos.getProductos())
