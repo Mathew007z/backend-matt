@@ -15,6 +15,7 @@ class ProductMananger {
     }
 
     addProduct = (title = 'producto a prueba', description='esto es un producto a prueba', price = 200, thumbnail='sin imagen', code='123', stock = 25) => {
+        
         const producto = {
             title,
             description,
@@ -35,17 +36,21 @@ class ProductMananger {
             
         }
 
-        if(this.productos.includes('code')){
-            console.log('error')
+        const repetido = this.productos.includes(code.value)
+
+
+        if(repetido){
+            console.log('error no se puede repetir el campo code')
+        }else{
+            this.productos.push(producto)  
         }
-            this.productos.push(producto);  
-        
-      
+           
+    
         // Console log para ver el producto pusheado
-        console.log(producto)
+       
 
   
-    
+        
         
     }
 
