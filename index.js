@@ -54,7 +54,7 @@ class ProductMananger {
 
     // Encontrar producto por ID
     encontrarProducto =  (idProducto) => {
-        const encontrar = this.productos.find(id => id.id === idProducto.id)
+        const encontrar = this.productos.find(id => id.id === idProducto)
         if(!encontrar){
             console.log('producto no encontrado')
         }else{
@@ -63,13 +63,11 @@ class ProductMananger {
        
 
     }
-
-
- 
 }
 
 const manejadorProductos =  new ProductMananger();
 manejadorProductos.addProduct('manzana', 'roja', 200, 'imagen', 123, 5)
 manejadorProductos.addProduct('pera', 'verde', 300, 'pera', 222, 2)
 manejadorProductos.encontrarProducto(1) 
+manejadorProductos.encontrarProducto(2) 
 console.log(manejadorProductos.getProductos())
