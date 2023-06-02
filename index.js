@@ -5,8 +5,6 @@ class ProductMananger {
     // Creacion del constructor iniciado con un array vacio de productos.
     constructor(){  
         this.productos = [];
-        // Inicia con array vacio
-        console.log(this.productos)
     }
    
     // getProductos devuelve un array vacio.
@@ -36,13 +34,13 @@ class ProductMananger {
             
         }
 
-        const repetido = this.productos.includes(code.value)
 
 
-        if(repetido){
-            console.log('error no se puede repetir el campo code')
-        }else{
-            this.productos.push(producto)  
+        const repetido = this.productos.some((prod) => prod.code === producto.code);
+        if (repetido) {
+          console.log('Error: no se puede repetir el campo code');
+        } else {
+          this.productos.push(producto);
         }
            
     
@@ -55,24 +53,22 @@ class ProductMananger {
     }
 
 
-
-
     // Encontrar producto por ID
-    encontrarProducto =  (idProducto) => {
+    getProductId =  (idProducto) => {
         const encontrar = this.productos.find(id => id.id === idProducto)
         if(!encontrar){
             console.log('producto no encontrado')
         }else{
             console.log(encontrar)
         }
-       
-
     }
 }
 
 const manejadorProductos =  new ProductMananger();
 manejadorProductos.addProduct('manzana', 'roja', 200, 'imagen', 123, 5)
 manejadorProductos.addProduct('pera', 'verde', 300, 'pera', 222, 2)
-manejadorProductos.encontrarProducto(1) 
-manejadorProductos.encontrarProducto(2) 
+manejadorProductos.addProduct('pera', 'verde', 300, 'pera', 222, 2)
+manejadorProductos.getProductId(1) 
+manejadorProductos.getProductId(2) 
 console.log(manejadorProductos.getProductos())
+
